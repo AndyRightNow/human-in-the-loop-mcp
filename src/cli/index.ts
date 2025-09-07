@@ -1,5 +1,9 @@
-import { program } from "commander";
+import { program } from 'commander';
+import { DiscordTransportCommand } from '../transports/discord';
+import { HTTPTransportCommand } from '../transports/http';
 
-program.option("--first").option("-s, --separator <char>");
-
-program.parse();
+program
+  .name('human-in-the-loop-mcp')
+  .addCommand(new DiscordTransportCommand())
+  .addCommand(new HTTPTransportCommand())
+  .parse();

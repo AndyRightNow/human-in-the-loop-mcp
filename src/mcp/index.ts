@@ -1,40 +1,42 @@
-import {
-  McpServer,
-  ResourceTemplate,
-} from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
+import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
+import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import packageJSON from '../../package.json';
+import { BaseTransport } from '../transports/base/transport';
+import { QuestionsSchema } from '../types';
 
 // Create an MCP server
 const server = new McpServer({
-  name: "human-in-the-loop-mcp-server",
-  version: "1.0.0",
+  name: 'human-in-the-loop-mcp-server',
+  version: packageJSON.version,
 });
 
 // Start receiving messages on stdin and sending messages on stdout
-export async function startMCPServer({
-  onQuestions,
+export async function startMCPServer<TransportType extends BaseTransport>({
+  transport,
+  customToolDescription,
 }: {
-  onQuestions: (questions: string[]) => Promise<string[]>;
+  transport: TransportType;
+  customToolDescription?: string;
 }) {
   // Add an addition tool
   server.registerTool(
-    "AskQuestion",
+    'AskQuestion',
     {
-      title: "Ask Question Tool",
+      title: 'Ask Question Tool',
       description:
-        "Use this tool when you need to ask either a clarifying question, or a decision-making question.",
-      inputSchema: {
-        questions: z.array(z.string().min(1)).min(1),
-      },
+        customToolDescription ||
+        'Use this tool when you need to ask either a clarifying question, or a decision-making question.',
+      inputSchema: QuestionsSchema.shape,
     },
     async ({ questions }) => ({
       content: [
-        { type: "text", text: (await onQuestions(questions)).join("\n") },
+        {
+          type: 'text',
+          text: await transport.sendQuestions(questions),
+        },
       ],
-    }),
+    })
   );
 
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
+  await server.connect(new StdioServerTransport());
 }

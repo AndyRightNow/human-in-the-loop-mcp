@@ -1,0 +1,2 @@
+export const DEFAULT_READY_TIMEOUT = 1000 * 60;
+export const DEFAULT_RESPONSE_TIMEOUT = 1000 * 60 * 60;
