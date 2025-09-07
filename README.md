@@ -23,17 +23,6 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 - An MCP Client (Claude Desktop, Cursor, VSCode, etc.)
 
 <details>
-<summary><b>Install in Smithery</b></summary>
-
-To install Human-In-The-Loop MCP for Claude Desktop automatically via [Smithery](https://smithery.ai/server/human-in-the-loop-mcp):
-
-```bash
-npx @smithery/cli install human-in-the-loop-mcp --client claude
-```
-
-</details>
-
-<details>
 <summary><b>Install in Cursor</b></summary>
 
 #### Via bunx
