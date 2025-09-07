@@ -1,26 +1,28 @@
 {
-  "name": "shadcn-ui-monorepo",
+  "name": "human-in-the-loop-mcp",
   "version": "0.0.1",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
+    "build": "tsc",
+    "start": "bun run ./src/cli/index.ts",
+    "lint": "eslint --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
-    "@workspace/eslint-config": "workspace:*",
-    "@workspace/typescript-config": "workspace:*",
+    "@types/node": "^18.19.124",
     "prettier": "^3.6.2",
-    "turbo": "^2.5.5",
-    "typescript": "5.7.3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
   },
-  "packageManager": "yarn@4.9.4",
+  "packageManager": "bun@1.2.21",
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "commander": "^14.0.0"
+  },
+  "bin": {
+    "human-in-the-loop-mcp": "./bin/run.js"
   }
 }
