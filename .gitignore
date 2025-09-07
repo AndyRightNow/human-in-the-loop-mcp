@@ -38,3 +38,4 @@ npm-debug.log*
 install-state.gz
 .vscode
 *.tgz
+settings.local.json
