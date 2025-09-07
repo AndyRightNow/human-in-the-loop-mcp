@@ -22,10 +22,21 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 - Discord Bot Token or HTTP endpoint
 - An MCP Client (Claude Desktop, Cursor, VSCode, etc.)
 
-### Cursor
+<details>
+<summary><b>Install in Smithery</b></summary>
 
-Add to your Cursor settings:
+To install Human-In-The-Loop MCP for Claude Desktop automatically via [Smithery](https://smithery.ai/server/human-in-the-loop-mcp):
 
+```bash
+npx @smithery/cli install human-in-the-loop-mcp --client claude
+```
+
+</details>
+
+<details>
+<summary><b>Install in Cursor</b></summary>
+
+#### Via bunx
 ```json
 {
   "mcpServers": {
@@ -42,10 +53,30 @@ Add to your Cursor settings:
 }
 ```
 
-### Claude Desktop
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
 
-Add to your Claude Desktop configuration:
+</details>
 
+<details>
+<summary><b>Install in Claude Code</b></summary>
+
+#### Via bunx
 ```json
 {
   "mcpServers": {
@@ -62,10 +93,70 @@ Add to your Claude Desktop configuration:
 }
 ```
 
-### VS Code
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
 
-Add to your VS Code MCP settings:
+</details>
 
+<details>
+<summary><b>Install in Windsurf</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in VS Code</b></summary>
+
+#### Via bunx
 ```json
 {
   "mcpServers": {
@@ -81,59 +172,988 @@ Add to your VS Code MCP settings:
 }
 ```
 
-### Using bunx (Recommended)
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "http",
+        "--url", "https://your-endpoint.com/questions"
+      ]
+    }
+  }
+}
+```
 
-Quick start with bunx:
+</details>
+
+<details>
+<summary><b>Install in Cline</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Zed</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Augment Code</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Roo Code</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Gemini CLI</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Claude Desktop</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Opencode</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in OpenAI Codex</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in JetBrains AI Assistant</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Kiro</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Trae</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install with Bun or Deno</b></summary>
+
+### Bun
 
 ```bash
 bunx human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
 ```
 
-### Using npx
-
-```bash
-npx human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
-```
-
-### Using npm
-
-Global installation:
-
-```bash
-npm install -g human-in-the-loop-mcp
-human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
-```
-
-### Using yarn
-
-```bash
-yarn global add human-in-the-loop-mcp
-human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
-```
-
-### Using pnpm
-
-```bash
-pnpm add -g human-in-the-loop-mcp
-human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
-```
-
-### Using Bun
-
-```bash
-bun add -g human-in-the-loop-mcp
-bunx human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
-```
-
-### Using Deno
+### Deno
 
 ```bash
 deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
 ```
 
-### From source
+</details>
 
-Build from source:
+
+<details>
+<summary><b>Install in Desktop Extension</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install on Windows</b></summary>
+
+#### Via npx.cmd
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Amazon Q Developer CLI</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Warp</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Copilot Coding Agent</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in LM Studio</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Visual Studio 2022</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Crush</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in BoltAI</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Rovo Dev CLI</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Zencoder</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Qodo Gen</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install in Perplexity Desktop</b></summary>
+
+#### Via bunx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "bunx",
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+#### Via npx
+```json
+{
+  "mcpServers": {
+    "human-in-the-loop": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token", "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id", "YOUR_DISCORD_USER_ID"
+      ]
+    }
+  }
+}
+```
+
+</details>
+
+<details>
+<summary><b>Install from source</b></summary>
 
 ```bash
 git clone https://github.com/AndyRightNow/human-in-the-loop-mcp.git
@@ -142,6 +1162,8 @@ bun install
 bun run build
 bun start discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
 ```
+
+</details>
 
 ## Usage
 
