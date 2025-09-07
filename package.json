@@ -2,6 +2,11 @@
   "name": "human-in-the-loop-mcp",
   "version": "0.0.1",
   "private": true,
+  "author": "AndyRightNow",
+  "description": "Micro-manage your agentic LLM promptly with your favorite messaging App, and more.",
+  "repository": {
+    "url": "https://github.com/AndyRightNow/human-in-the-loop-mcp"
+  },
   "scripts": {
     "build": "tsc && tsc-alias -p tsconfig.json",
     "start": "bun run ./src/cli/index.ts",

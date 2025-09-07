@@ -1,2 +1,7 @@
 src
 test
+assets
+eslint.*
+prettier.*
+README.*
+tsconfig.*
