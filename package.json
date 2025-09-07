@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias -p tsconfig.json",
     "start": "bun run ./src/cli/index.ts",
     "lint": "eslint --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
@@ -16,6 +16,7 @@
     "prettier": "^3.6.2",
     "prettier-plugin-organize-imports": "^4.2.0",
     "ts-node": "^10.9.2",
+    "tsc-alias": "^1.8.16",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.42.0"
   },
@@ -28,7 +29,5 @@
     "commander": "^14.0.0",
     "discord.js": "^14.22.1"
   },
-  "bin": {
-    "human-in-the-loop-mcp": "./bin/run.js"
-  }
+  "bin": "bin/cli.js"
 }

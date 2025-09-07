@@ -1,4 +1,4 @@
-import { startMCPServer } from '@/src/mcp';
+import { startMCPServer } from '@/mcp';
 import { Command } from 'commander';
 import { DEFAULT_READY_TIMEOUT, DEFAULT_RESPONSE_TIMEOUT } from './constants';
 import { BaseTransport } from './transport';

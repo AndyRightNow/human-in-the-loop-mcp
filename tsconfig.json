@@ -12,7 +12,7 @@
     "baseUrl": ".",
     "types": ["bun"],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./src/*"]
     },
     "outDir": "./dist"
   },

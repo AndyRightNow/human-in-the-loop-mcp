@@ -1,4 +1,4 @@
-import { Answers, Questions } from '@/src/types';
+import { Answers, Questions } from '@/types';
 import { BaseTransportCommand } from '../base/command';
 import { HTTPTransport } from './transport';
 
@@ -23,6 +23,12 @@ export class HTTPTransportCommand extends BaseTransportCommand<HTTPTransport> {
         throw new Error('Invalid URL');
       }
     );
+
+    this.option(
+      '--headers [headers]',
+      'HTTP headers to use, must be valid JSON.',
+      (rawStr) => (rawStr ? JSON.stringify(rawStr) : {})
+    );
   }
 
   protected override getTransport(): HTTPTransport {
@@ -30,6 +36,7 @@ export class HTTPTransportCommand extends BaseTransportCommand<HTTPTransport> {
 
     return new HTTPTransport({
       url: options.url,
+      headers: options.headers,
     });
   }
 }
