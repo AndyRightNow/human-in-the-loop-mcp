@@ -1,0 +1,25 @@
+{
+  "name": "electron",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.9",
+    "@workspace/eslint-config": "workspace:^",
+    "@workspace/typescript-config": "workspace:*",
+    "electron": "^38.0.0",
+    "electron-is-dev": "^3.0.1",
+    "electron-log": "^5.4.3",
+    "electron-store": "^10.1.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5"
+  }
+}
