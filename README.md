@@ -26,6 +26,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Cursor</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -34,8 +35,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -43,6 +46,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -52,8 +56,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -66,6 +72,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Claude Code</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -74,8 +81,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -83,6 +92,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -92,8 +102,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -106,6 +118,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Windsurf</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -114,8 +127,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -123,6 +138,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -132,8 +148,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -146,6 +164,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in VS Code</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -154,7 +173,8 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "http",
-        "--url", "https://your-endpoint.com/questions"
+        "--url",
+        "https://your-endpoint.com/questions"
       ]
     }
   }
@@ -162,6 +182,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -171,7 +192,8 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "http",
-        "--url", "https://your-endpoint.com/questions"
+        "--url",
+        "https://your-endpoint.com/questions"
       ]
     }
   }
@@ -184,6 +206,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Cline</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -192,8 +215,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -201,6 +226,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -210,8 +236,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -224,6 +252,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Zed</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -232,8 +261,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -241,6 +272,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -250,8 +282,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -264,6 +298,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Augment Code</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -272,8 +307,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -281,6 +318,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -290,8 +328,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -304,6 +344,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Roo Code</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -312,8 +353,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -321,6 +364,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -330,8 +374,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -344,6 +390,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Gemini CLI</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -352,8 +399,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -361,6 +410,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -370,8 +420,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -384,6 +436,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Claude Desktop</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -392,8 +445,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -401,6 +456,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -410,8 +466,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -424,6 +482,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Opencode</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -432,8 +491,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -441,6 +502,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -450,8 +512,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -464,6 +528,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in OpenAI Codex</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -472,8 +537,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -481,6 +548,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -490,8 +558,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -504,6 +574,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in JetBrains AI Assistant</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -512,8 +583,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -521,6 +594,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -530,8 +604,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -544,6 +620,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Kiro</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -552,8 +629,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -561,6 +640,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -570,8 +650,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -584,6 +666,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 <summary><b>Install in Trae</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -592,8 +675,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -601,6 +686,7 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -610,8 +696,10 @@ A Model Context Protocol (MCP) server that enables human oversight for AI assist
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -637,11 +725,11 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 
 </details>
 
-
 <details>
 <summary><b>Install in Desktop Extension</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -650,8 +738,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -659,6 +749,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -668,8 +759,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -682,6 +775,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install on Windows</b></summary>
 
 #### Via npx.cmd
+
 ```json
 {
   "mcpServers": {
@@ -691,8 +785,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -705,6 +801,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Amazon Q Developer CLI</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -713,8 +810,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -722,6 +821,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -731,8 +831,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -745,6 +847,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Warp</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -753,8 +856,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -762,6 +867,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -771,8 +877,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -785,6 +893,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Copilot Coding Agent</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -793,8 +902,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -802,6 +913,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -811,8 +923,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -825,6 +939,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in LM Studio</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -833,8 +948,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -842,6 +959,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -851,8 +969,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -865,6 +985,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Visual Studio 2022</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -873,8 +994,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -882,6 +1005,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -891,8 +1015,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -905,6 +1031,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Crush</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -913,8 +1040,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -922,6 +1051,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -931,8 +1061,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -945,6 +1077,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in BoltAI</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -953,8 +1086,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -962,6 +1097,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -971,8 +1107,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -985,6 +1123,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Rovo Dev CLI</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -993,8 +1132,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1002,6 +1143,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -1011,8 +1153,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1025,6 +1169,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Zencoder</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -1033,8 +1178,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1042,6 +1189,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -1051,8 +1199,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1065,6 +1215,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Qodo Gen</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -1073,8 +1224,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1082,6 +1235,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -1091,8 +1245,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1105,6 +1261,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 <summary><b>Install in Perplexity Desktop</b></summary>
 
 #### Via bunx
+
 ```json
 {
   "mcpServers": {
@@ -1113,8 +1270,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
       "args": [
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1122,6 +1281,7 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
 ```
 
 #### Via npx
+
 ```json
 {
   "mcpServers": {
@@ -1131,8 +1291,10 @@ deno run -A npm:human-in-the-loop-mcp discord --token YOUR_DISCORD_BOT_TOKEN --u
         "-y",
         "human-in-the-loop-mcp",
         "discord",
-        "--token", "YOUR_DISCORD_BOT_TOKEN",
-        "--user-id", "YOUR_DISCORD_USER_ID"
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
       ]
     }
   }
@@ -1208,7 +1370,7 @@ Your endpoint must accept POST requests with this payload:
 
 ```typescript
 {
-  questions: string  // Questions from the AI
+  questions: string; // Questions from the AI
 }
 ```
 
@@ -1216,11 +1378,12 @@ Expected response:
 
 ```typescript
 {
-  answers: string  // Your response
+  answers: string; // Your response
 }
 ```
 
 Status codes:
+
 - 200: Success
 - 4xx: Client error
 - 5xx: Server error
@@ -1242,20 +1405,23 @@ Simple Express.js endpoint example:
 app.post('/questions', (req, res) => {
   console.log('Questions received:', req.body.questions);
   // Implement your response logic
-  res.json({ answers: "Your response here" });
+  res.json({ answers: 'Your response here' });
 });
 ```
 
 ## Troubleshooting
 
 **Q: The bot isn't sending me messages**
-A: Ensure you have DMs enabled from server members in your Discord privacy settings.
+
+**A**: Ensure you have DMs enabled from server members in your Discord privacy settings.
 
 **Q: Timeout errors**
-A: Increase the timeout value with the `--timeout` flag (in milliseconds).
+
+**A**: Increase the timeout value with the `--timeout` flag (in milliseconds).
 
 **Q: HTTP endpoint not working**
-A: Verify your endpoint URL, check any required headers, and ensure the endpoint is accessible.
+
+**A**: Verify your endpoint URL, check any required headers, and ensure the endpoint is accessible.
 
 ## Contributing
 
