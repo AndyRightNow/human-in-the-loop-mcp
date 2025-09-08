@@ -1,4 +1,4 @@
-import { Client, Events, GatewayIntentBits, User } from 'discord.js';
+import { Client, DMChannel, Events, GatewayIntentBits, User } from 'discord.js';
 import { BaseTransport, BaseTransportOptions } from '../base/transport';
 
 export type DiscordTransportOptions = BaseTransportOptions & {
@@ -9,6 +9,7 @@ export type DiscordTransportOptions = BaseTransportOptions & {
 export class DiscordTransport extends BaseTransport {
   private client: Client;
   private user: User | undefined;
+  private dmChannel: DMChannel | undefined;
 
   constructor(options: DiscordTransportOptions) {
     super(options);
@@ -26,6 +27,14 @@ export class DiscordTransport extends BaseTransport {
         throw new Error(`User with ID ${options.userId} not found`);
       }
 
+      let dmChannel = this.user.dmChannel || (await this.user.createDM());
+
+      if (!dmChannel) {
+        throw new Error(`Failed to create DM channel with user`);
+      }
+
+      this.dmChannel = dmChannel;
+
       this.isReady = true;
     });
 
@@ -33,17 +42,11 @@ export class DiscordTransport extends BaseTransport {
   }
 
   public override async handleQuestions(questions: string): Promise<string> {
-    if (!this.user) {
-      throw new Error(`User not found`);
+    if (!this.dmChannel) {
+      throw new Error(`DM Channel not found`);
     }
 
-    let dmChannel = this.user.dmChannel || (await this.user.createDM());
-
-    if (!dmChannel) {
-      throw new Error(`Failed to create DM channel with user`);
-    }
-
-    const sentMessage = await dmChannel.send(questions);
+    const sentMessage = await this.dmChannel.send(questions);
 
     if (!sentMessage) {
       throw new Error(
@@ -51,18 +54,38 @@ export class DiscordTransport extends BaseTransport {
       );
     }
 
-    const messageCollection = await dmChannel.awaitMessages({
-      filter: (message) => message.author.id === this.user?.id,
-      max: 1,
-      time: this.responseTimeout,
+    return new Promise((resolve, reject) => {
+      if (!this.dmChannel) {
+        reject(new Error(`DM Channel not found`));
+        return;
+      }
+
+      try {
+        const messageCollector = this.dmChannel.createMessageCollector({
+          filter: (message) => message.author.id === this.user?.id,
+          time: this.responseTimeout,
+        });
+
+        messageCollector.on('collect', (message) => {
+          if (message.reference?.messageId === sentMessage.id) {
+            resolve(message.content);
+            messageCollector.stop();
+            return;
+          }
+
+          if (this.dmChannel) {
+            this.dmChannel.send(
+              `❌ Please reply to my message directly instead of sending a new message. Use the reply feature to respond to my question.`
+            );
+          }
+        });
+
+        messageCollector.on('end', () => {
+          reject(new Error(`Response timeout exceeded`));
+        });
+      } catch (e: unknown) {
+        reject(new Error(`Failed to create message collector: ${e}`));
+      }
     });
-
-    const message = messageCollection?.first();
-
-    if (!message) {
-      throw new Error(`No response received within ${this.responseTimeout}ms`);
-    }
-
-    return message.content;
   }
 }
