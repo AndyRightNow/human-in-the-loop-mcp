@@ -25,7 +25,13 @@ export async function startMCPServer<TransportType extends BaseTransport>({
       title: 'Ask Question Tool',
       description:
         customToolDescription ||
-        'Use this tool when you need to ask either a clarifying question, or a decision-making question.',
+        `Use this tool when you need to ask either a clarifying question, or a decision-making question.
+Example scenarios where you should use this tool to ask questions:
+- When you are doing research in a codebase, you might find multiple options to implement a feature
+- When you are unsure about the scope of a requirement or how detailed the implementation should be
+- When the requirement is relatively vague or unclear
+- When the target feature has man references or dependencies but the requirement only specifies one or a few of them
+`,
       inputSchema: QuestionsSchema.shape,
     },
     async ({ questions }) => ({
