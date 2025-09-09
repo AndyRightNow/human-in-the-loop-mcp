@@ -15,9 +15,13 @@ export abstract class BaseTransport {
   }
 
   public async sendQuestions(questions: string): Promise<string> {
-    await this.waitUntilReady();
+    try {
+      await this.waitUntilReady();
 
-    return this.handleQuestions(questions);
+      return this.handleQuestions(questions);
+    } catch (error) {
+      throw new Error(`Failed to send questions: ${error}`);
+    }
   }
 
   protected abstract handleQuestions(questions: string): Promise<string>;
