@@ -39,3 +39,5 @@ install-state.gz
 .vscode
 *.tgz
 settings.local.json
+.claude/.docs
+*.log
