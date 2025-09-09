@@ -6,62 +6,68 @@ import {
   Message,
   User,
 } from 'discord.js';
-import { BaseTransport, BaseTransportOptions } from '../base/transport';
+import {
+  MessagingAppTransport,
+  MessagingAppTransportOptions,
+} from '../base/messaging-app-transport';
 
-export type DiscordTransportOptions = BaseTransportOptions & {
-  token: string;
-  userId: string;
-  remind?: boolean;
-  remindInterval?: number;
-};
+export type DiscordTransportOptions = MessagingAppTransportOptions;
 
-export class DiscordTransport extends BaseTransport {
+export class DiscordTransport extends MessagingAppTransport<
+  Message,
+  User,
+  DMChannel
+> {
   private client: Client;
-  private user: User | undefined;
-  private dmChannel: DMChannel | undefined;
-  private remind: boolean;
-  private remindInterval: number;
-  private reminderTimer?: NodeJS.Timeout;
-  private lastReminderMessage?: Message;
 
   constructor(options: DiscordTransportOptions) {
     super(options);
-
-    this.responseTimeout = options.responseTimeout || this.responseTimeout;
-    this.remind = options.remind ?? false;
-    this.remindInterval = options.remindInterval ?? 60000;
 
     this.client = new Client({
       intents: [GatewayIntentBits.Guilds, GatewayIntentBits.DirectMessages],
     });
 
     this.client.once(Events.ClientReady, async () => {
-      this.user = await this.client.users.fetch(options.userId);
-
-      if (!this.user) {
-        throw new Error(`User with ID ${options.userId} not found`);
-      }
-
-      let dmChannel = this.user.dmChannel || (await this.user.createDM());
-
-      if (!dmChannel) {
-        throw new Error(`Failed to create DM channel with user`);
-      }
-
-      this.dmChannel = dmChannel;
-
+      await this.initializeConnection();
       this.isReady = true;
     });
 
-    this.client.login(options.token);
+    this.client.login(this.token);
+  }
+
+  protected async initializeConnection(): Promise<void> {
+    await this.validateUser();
+    await this.createChannel();
+  }
+
+  protected async validateUser(): Promise<void> {
+    this.user = await this.client.users.fetch(this.userId);
+
+    if (!this.user) {
+      throw new Error(`User with ID ${this.userId} not found`);
+    }
+  }
+
+  protected async createChannel(): Promise<void> {
+    if (!this.user) {
+      throw new Error('User must be validated before creating channel');
+    }
+
+    const dmChannel = this.user.dmChannel || (await this.user.createDM());
+
+    if (!dmChannel) {
+      throw new Error(`Failed to create DM channel with user`);
+    }
+
+    this.channel = dmChannel;
   }
 
   public override async handleQuestions(questions: string): Promise<string> {
-    if (!this.dmChannel) {
+    if (!this.channel) {
       throw new Error(`DM Channel not found`);
     }
 
-    const sentMessage = await this.dmChannel.send(questions);
+    const sentMessage = await this.channel.send(questions);
 
     if (!sentMessage) {
       throw new Error(
@@ -70,7 +76,7 @@ export class DiscordTransport extends BaseTransport {
     }
 
     return new Promise((resolve, reject) => {
-      if (!this.dmChannel) {
+      if (!this.channel) {
         reject(new Error(`DM Channel not found`));
         return;
       }
@@ -80,15 +86,13 @@ export class DiscordTransport extends BaseTransport {
       };
 
       try {
-        const messageCollector = this.dmChannel.createMessageCollector({
+        const messageCollector = this.channel.createMessageCollector({
           filter: (message) => message.author.id === this.user?.id,
           time: this.responseTimeout,
         });
 
         // Start reminders if enabled
-        if (this.remind) {
-          this.startReminders(sentMessage);
-        }
+        this.startReminders(sentMessage);
 
         messageCollector.on('collect', (message) => {
           if (message.reference?.messageId === sentMessage.id) {
@@ -98,8 +102,8 @@ export class DiscordTransport extends BaseTransport {
             return;
           }
 
-          if (this.dmChannel) {
-            this.dmChannel.send(
+          if (this.channel) {
+            this.channel.send(
               `❌ Please reply to my message directly instead of sending a new message. Use the reply feature to respond to my question.`
             );
           }
@@ -116,14 +120,8 @@ export class DiscordTransport extends BaseTransport {
     });
   }
 
-  private startReminders(originalMessage: Message): void {
-    this.reminderTimer = setTimeout(() => {
-      this.sendReminder(originalMessage);
-    }, this.remindInterval);
-  }
-
-  private async sendReminder(originalMessage: Message): Promise<void> {
-    if (!this.dmChannel) {
+  protected async sendReminder(originalMessage: Message): Promise<void> {
+    if (!this.channel) {
       return;
     }
 
@@ -132,13 +130,13 @@ export class DiscordTransport extends BaseTransport {
       if (this.lastReminderMessage) {
         try {
           await this.lastReminderMessage.delete();
-        } catch (error) {
+        } catch {
           // Ignore deletion errors (message might already be deleted, no permissions, etc.)
         }
       }
 
       // Send new reminder message that replies to the original question
-      this.lastReminderMessage = await this.dmChannel.send({
+      this.lastReminderMessage = await this.channel.send({
         content: `⏰ Reminder: Please respond to my question`,
         reply: { messageReference: originalMessage.id },
       });
@@ -147,17 +145,9 @@ export class DiscordTransport extends BaseTransport {
       this.reminderTimer = setTimeout(() => {
         this.sendReminder(originalMessage);
       }, this.remindInterval);
-    } catch (error) {
+    } catch {
       // If sending reminder fails, don't schedule next one
       this.clearReminderTimer();
     }
-  }
-
-  private clearReminderTimer(): void {
-    if (this.reminderTimer) {
-      clearTimeout(this.reminderTimer);
-      this.reminderTimer = undefined;
-    }
-    this.lastReminderMessage = undefined;
   }
 }
