@@ -6,13 +6,54 @@
 
 </div>
 
-## ⚡️ Quick start
-
-Give your AI a human touch. Sometimes machines need to ask for help.
-
 ## What is this?
 
 A Model Context Protocol (MCP) server that enables human oversight for AI assistants through Discord or HTTP. When your AI needs clarification or approval, it can reach out to you directly.
+
+## Usage
+
+### Discord Transport
+
+Connect your AI to Discord for real-time human feedback:
+
+```bash
+bunx human-in-the-loop-mcp discord \
+  --token YOUR_DISCORD_BOT_TOKEN \
+  --user-id YOUR_DISCORD_USER_ID
+```
+
+Run `bunx human-in-the-loop-mcp discord --help` to see all available options.
+
+### HTTP Transport
+
+Integrate with your own HTTP endpoint:
+
+```bash
+bunx human-in-the-loop-mcp http \
+  --url https://your-endpoint.com/questions
+```
+
+Run `bunx human-in-the-loop-mcp http --help` to see all available options.
+
+### Telegram Transport
+
+Connect your AI to Telegram for real-time human feedback:
+
+```bash
+bunx human-in-the-loop-mcp telegram \
+  --token YOUR_TELEGRAM_BOT_TOKEN \
+  --user-id YOUR_TELEGRAM_USER_ID
+```
+
+Run `bunx human-in-the-loop-mcp telegram --help` to see all available options.
+
+### Slack Transport
+
+Under development
+
+### `stdio` Transport
+
+Under development
 
 ## 🛠️ Installation
 
@@ -1478,43 +1519,6 @@ bun start discord --token YOUR_DISCORD_BOT_TOKEN --user-id YOUR_DISCORD_USER_ID
 ```
 
 </details>
-
-## Usage
-
-### Discord Transport
-
-Connect your AI to Discord for real-time human feedback:
-
-```bash
-bunx human-in-the-loop-mcp discord \
-  --token YOUR_DISCORD_BOT_TOKEN \
-  --user-id YOUR_DISCORD_USER_ID
-```
-
-Run `bunx human-in-the-loop-mcp discord --help` to see all available options.
-
-### HTTP Transport
-
-Integrate with your own HTTP endpoint:
-
-```bash
-bunx human-in-the-loop-mcp http \
-  --url https://your-endpoint.com/questions
-```
-
-Run `bunx human-in-the-loop-mcp http --help` to see all available options.
-
-### Telegram Transport
-
-Under development
-
-### Slack Transport
-
-Under development
-
-### `stdio` Transport
-
-Under development
 
 ## How It Works
 
