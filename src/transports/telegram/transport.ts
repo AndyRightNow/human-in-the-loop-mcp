@@ -61,12 +61,12 @@ export class TelegramTransport extends MessagingAppTransport<
         this.messageQueue.push(message);
 
         // Process any pending responses
-        this.processPendingResponses(message);
+        await this.processPendingResponses(message);
       }
     });
   }
 
-  private processPendingResponses(newMessage?: Message): void {
+  private async processPendingResponses(newMessage?: Message) {
     // Process the new message first if provided
     if (newMessage) {
       this.processMessageForPendingResponse(newMessage);
@@ -75,14 +75,16 @@ export class TelegramTransport extends MessagingAppTransport<
     // Process the entire message queue to check for any matching responses
     for (let i = this.messageQueue.length - 1; i >= 0; i--) {
       const message = this.messageQueue[i];
-      if (this.processMessageForPendingResponse(message)) {
+      if (await this.processMessageForPendingResponse(message)) {
         // Remove the processed message from the queue
         this.messageQueue.splice(i, 1);
       }
     }
   }
 
-  private processMessageForPendingResponse(message: Message): boolean {
+  private async processMessageForPendingResponse(
+    message: Message
+  ): Promise<boolean> {
     for (const [
       messageId,
       pendingResponse,
@@ -97,6 +99,7 @@ export class TelegramTransport extends MessagingAppTransport<
         clearTimeout(pendingResponse.timeout);
         this.pendingResponses.delete(messageId);
         pendingResponse.resolve(message.text || '');
+
         return true; // Message was processed
       }
     }
@@ -104,17 +107,13 @@ export class TelegramTransport extends MessagingAppTransport<
     // If no pending response was found and this is a message from the expected user,
     // send a reminder to reply properly (only if we have any pending responses)
     if (this.pendingResponses.size > 0) {
-      this.bot.api
-        .sendMessage(
-          this.numericChatId,
-          `❌ Please reply to my message directly instead of sending a new message. Use the reply feature to respond to my question.`,
-          {
-            reply_parameters: { message_id: message.message_id },
-          }
-        )
-        .catch(() => {
-          // Ignore errors when sending reminder
-        });
+      await this.bot.api.sendMessage(
+        this.numericChatId,
+        `❌ Please reply to my message directly instead of sending a new message. Use the reply feature to respond to my question.`,
+        {
+          reply_parameters: { message_id: message.message_id },
+        }
+      );
     }
 
     return false; // Message was not processed
