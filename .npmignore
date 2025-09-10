@@ -1,4 +1,4 @@
-src
+src/**/*.ts
 test
 assets
 eslint.*
@@ -32,7 +32,6 @@ coverage
 .next/
 out/
 build
-dist
 
 
 # Debug
@@ -48,3 +47,5 @@ install-state.gz
 settings.local.json
 *.log
 .claude
+CLAUDE.md
+README.md

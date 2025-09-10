@@ -1,6 +1,6 @@
 {
   "name": "human-in-the-loop-mcp",
-  "version": "0.0.6",
+  "version": "0.0.9",
   "author": "AndyRightNow",
   "description": "Micro-manage your agentic LLM promptly with your favorite messaging App, and more.",
   "repository": {
