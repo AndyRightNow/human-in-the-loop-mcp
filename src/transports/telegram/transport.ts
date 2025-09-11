@@ -161,10 +161,7 @@ export class TelegramTransport extends MessagingAppTransport<
 
     const sentMessage = await this.bot.api.sendMessage(
       this.numericUserId || this.numericChatId,
-      questions,
-      {
-        parse_mode: 'MarkdownV2',
-      }
+      questions
     );
 
     if (!sentMessage) {
