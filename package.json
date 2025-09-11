@@ -1,6 +1,6 @@
 {
   "name": "human-in-the-loop-mcp",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "author": "AndyRightNow",
   "description": "Micro-manage your agentic LLM promptly with your favorite messaging App, and more.",
   "repository": {
@@ -10,7 +10,8 @@
     "build": "rm -rf dist && tsc && tsc-alias -p tsconfig.json",
     "start": "bun run ./src/cli/index.ts",
     "lint": "eslint --fix",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepublishOnly": "bun run lint && bun run build"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
@@ -34,7 +35,8 @@
     "discord.js": "^14.22.1",
     "grammy": "^1.38.2",
     "pino": "^9.9.4",
-    "pino-pretty": "^13.1.1"
+    "pino-pretty": "^13.1.1",
+    "telegram-markdown-v2": "^0.0.1"
   },
   "bin": "bin/cli.js"
 }

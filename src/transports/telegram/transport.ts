@@ -1,6 +1,7 @@
 import { logger } from '@/utils/logger';
 import { Bot, Context } from 'grammy';
 import type { Message } from 'grammy/types';
+import { convert } from 'telegram-markdown-v2';
 import {
   MessagingAppTransport,
   MessagingAppTransportOptions,
@@ -161,7 +162,10 @@ export class TelegramTransport extends MessagingAppTransport<
 
     const sentMessage = await this.bot.api.sendMessage(
       this.numericUserId || this.numericChatId,
-      questions
+      convert(questions),
+      {
+        parse_mode: 'MarkdownV2',
+      }
     );
 
     if (!sentMessage) {
