@@ -1,6 +1,6 @@
 {
   "name": "human-in-the-loop-mcp",
-  "version": "0.0.17",
+  "version": "0.0.20",
   "author": "AndyRightNow",
   "description": "Micro-manage your agentic LLM promptly with your favorite messaging App, and more.",
   "repository": {
@@ -37,7 +37,7 @@
     "grammy": "^1.38.2",
     "pino": "^9.9.4",
     "pino-pretty": "^13.1.1",
-    "telegram-markdown-v2": "^0.0.1"
+    "telegram-markdown-v2": "^0.0.4"
   },
   "bin": "bin/cli.js"
 }
