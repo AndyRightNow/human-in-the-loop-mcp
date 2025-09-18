@@ -1,3 +1,4 @@
+import { logger } from '@/utils/logger';
 import {
   Client,
   DMChannel,
@@ -62,12 +63,12 @@ export class DiscordTransport extends MessagingAppTransport<
     this.channel = dmChannel;
   }
 
-  public override async handleQuestions(questions: string): Promise<string> {
+  protected async sendQuestionMessage(question: string): Promise<Message> {
     if (!this.channel) {
       throw new Error(`DM Channel not found`);
     }
 
-    const sentMessage = await this.channel.send(questions);
+    const sentMessage = await this.channel.send(question);
 
     if (!sentMessage) {
       throw new Error(
@@ -75,28 +76,23 @@ export class DiscordTransport extends MessagingAppTransport<
       );
     }
 
+    return sentMessage;
+  }
+
+  protected async collectResponse(originalMessage: Message): Promise<string> {
+    if (!this.channel) {
+      throw new Error(`DM Channel not found`);
+    }
+
     return new Promise((resolve, reject) => {
-      if (!this.channel) {
-        reject(new Error(`DM Channel not found`));
-        return;
-      }
-
-      const cleanup = () => {
-        this.clearReminderTimer();
-      };
-
       try {
-        const messageCollector = this.channel.createMessageCollector({
+        const messageCollector = this.channel!.createMessageCollector({
           filter: (message) => message.author.id === this.user?.id,
           time: this.responseTimeout,
         });
 
-        // Start reminders if enabled
-        this.startReminders(sentMessage);
-
         messageCollector.on('collect', (message) => {
-          if (message.reference?.messageId === sentMessage.id) {
-            cleanup();
+          if (message.reference?.messageId === originalMessage.id) {
             resolve(message.content);
             messageCollector.stop();
             return;
@@ -110,44 +106,49 @@ export class DiscordTransport extends MessagingAppTransport<
         });
 
         messageCollector.on('end', () => {
-          cleanup();
           reject(new Error(`Response timeout exceeded`));
         });
       } catch (e: unknown) {
-        cleanup();
         reject(new Error(`Failed to create message collector: ${e}`));
       }
     });
   }
 
-  protected async sendReminder(originalMessage: Message): Promise<void> {
+  protected async sendReminder(
+    questionId: string,
+    originalMessage: Message,
+    previousReminderMessage?: Message
+  ): Promise<Message | undefined> {
     if (!this.channel) {
-      return;
+      return undefined;
     }
 
     try {
-      // Try to delete the previous reminder message
-      if (this.lastReminderMessage) {
+      // Delete previous reminder message if it exists
+      if (previousReminderMessage) {
         try {
-          await this.lastReminderMessage.delete();
-        } catch {
-          // Ignore deletion errors (message might already be deleted, no permissions, etc.)
+          await previousReminderMessage.delete();
+          logger.debug(
+            `Deleted previous Discord reminder message ${previousReminderMessage.id}`
+          );
+        } catch (error) {
+          logger.debug(
+            `Could not delete previous Discord reminder message: ${error}`
+          );
         }
       }
 
-      // Send new reminder message that replies to the original question
-      this.lastReminderMessage = await this.channel.send({
+      // Send new reminder message
+      const reminderMessage = await this.channel.send({
         content: `⏰ Reminder: Please respond to my question`,
         reply: { messageReference: originalMessage.id },
       });
 
-      // Schedule next reminder
-      this.reminderTimer = setTimeout(() => {
-        this.sendReminder(originalMessage);
-      }, this.remindInterval);
-    } catch {
-      // If sending reminder fails, don't schedule next one
-      this.clearReminderTimer();
+      logger.debug(`Sent Discord reminder message ${reminderMessage.id}`);
+      return reminderMessage;
+    } catch (error) {
+      logger.error(`Failed to send Discord reminder: ${error}`);
+      return undefined;
     }
   }
 }

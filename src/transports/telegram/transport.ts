@@ -11,13 +11,6 @@ export type TelegramTransportOptions = MessagingAppTransportOptions & {
   chatId: string;
 };
 
-type PendingResponse = {
-  resolve: (value: string) => void;
-  reject: (error: Error) => void;
-  sentMessage: Message;
-  timeout: NodeJS.Timeout;
-};
-
 export class TelegramTransport extends MessagingAppTransport<
   Message,
   number,
@@ -28,7 +21,11 @@ export class TelegramTransport extends MessagingAppTransport<
   private numericChatId: number;
   private numericUserId: number;
   private messageQueue: Message[] = [];
-  private pendingResponses = new Map<number, PendingResponse>();
+  private currentCollector?: {
+    originalMessage: Message;
+    resolve: (value: string) => void;
+    reject: (error: Error) => void;
+  };
 
   constructor(options: TelegramTransportOptions) {
     super(options);
@@ -36,6 +33,10 @@ export class TelegramTransport extends MessagingAppTransport<
     this.chatId = options.chatId;
     this.numericChatId = parseInt(this.chatId, 10);
     this.numericUserId = parseInt(this.userId, 10);
+
+    logger.debug(
+      `Telegram constructor: chatId=${this.chatId}, numericChatId=${this.numericChatId}, userId=${this.userId}, numericUserId=${this.numericUserId}`
+    );
 
     this.bot = new Bot(this.token);
 
@@ -50,7 +51,7 @@ export class TelegramTransport extends MessagingAppTransport<
     this.bot.on('message', async (ctx: Context) => {
       const message = ctx.message;
 
-      // Only process messages from the expected user that are newer than any pending messages
+      // Only process messages from the expected user
       if (message?.from?.id === this.numericUserId) {
         // Check if chat ID needs to be set
         if (!this.numericChatId) {
@@ -61,63 +62,39 @@ export class TelegramTransport extends MessagingAppTransport<
         // Add message to queue for processing
         this.messageQueue.push(message);
 
-        // Process any pending responses
-        await this.processPendingResponses(message);
+        // Process if we have a current collector
+        if (this.currentCollector) {
+          await this.processMessageForCollector(message);
+        }
       }
     });
   }
 
-  private async processPendingResponses(newMessage?: Message) {
-    // Process the new message first if provided
-    if (newMessage) {
-      this.processMessageForPendingResponse(newMessage);
+  private async processMessageForCollector(message: Message): Promise<void> {
+    if (!this.currentCollector) {
+      return;
     }
 
-    // Process the entire message queue to check for any matching responses
-    for (let i = this.messageQueue.length - 1; i >= 0; i--) {
-      const message = this.messageQueue[i];
-      if (await this.processMessageForPendingResponse(message)) {
-        // Remove the processed message from the queue
-        this.messageQueue.splice(i, 1);
+    // Check if this is a reply to the pending message
+    if (
+      message.reply_to_message?.message_id ===
+        this.currentCollector.originalMessage.message_id &&
+      message.date > this.currentCollector.originalMessage.date
+    ) {
+      // Resolve with the response
+      this.currentCollector.resolve(message.text || '');
+      this.currentCollector = undefined;
+      return;
+    }
+
+    // If not a proper reply, send reminder
+    await this.bot.api.sendMessage(
+      this.numericChatId,
+      `❌ Please reply to my message directly instead of sending a new message. Use the reply feature to respond to my question.`,
+      {
+        reply_parameters: { message_id: message.message_id },
       }
-    }
-  }
-
-  private async processMessageForPendingResponse(
-    message: Message
-  ): Promise<boolean> {
-    for (const [
-      messageId,
-      pendingResponse,
-    ] of this.pendingResponses.entries()) {
-      // Check if this is a reply to the pending message
-      if (
-        message.reply_to_message?.message_id ===
-          pendingResponse.sentMessage.message_id &&
-        message.date > pendingResponse.sentMessage.date
-      ) {
-        // Clear timeout and resolve with the response
-        clearTimeout(pendingResponse.timeout);
-        this.pendingResponses.delete(messageId);
-        pendingResponse.resolve(message.text || '');
-
-        return true; // Message was processed
-      }
-    }
-
-    // If no pending response was found and this is a message from the expected user,
-    // send a reminder to reply properly (only if we have any pending responses)
-    if (this.pendingResponses.size > 0) {
-      await this.bot.api.sendMessage(
-        this.numericChatId,
-        `❌ Please reply to my message directly instead of sending a new message. Use the reply feature to respond to my question.`,
-        {
-          reply_parameters: { message_id: message.message_id },
-        }
-      );
-    }
-
-    return false; // Message was not processed
+    );
   }
 
   protected async initializeConnection(): Promise<void> {
@@ -157,12 +134,12 @@ export class TelegramTransport extends MessagingAppTransport<
     }
   }
 
-  public override async handleQuestions(questions: string): Promise<string> {
-    logger.debug(`Handling questions: ${questions}`);
+  protected async sendQuestionMessage(question: string): Promise<Message> {
+    logger.debug(`Sending question: ${question}`);
 
     const sentMessage = await this.bot.api.sendMessage(
       this.numericUserId || this.numericChatId,
-      convert(questions),
+      convert(question),
       {
         parse_mode: 'MarkdownV2',
       }
@@ -172,64 +149,84 @@ export class TelegramTransport extends MessagingAppTransport<
       throw new Error(`Failed to send message to chat`);
     }
 
+    return sentMessage;
+  }
+
+  protected async collectResponse(originalMessage: Message): Promise<string> {
     return new Promise((resolve, reject) => {
-      // Set up timeout
-      const timeout = setTimeout(() => {
-        this.pendingResponses.delete(sentMessage.message_id);
-        this.clearReminderTimer();
-        reject(new Error(`Response timeout exceeded`));
-      }, this.responseTimeout);
-
-      // Add to pending responses
-      this.pendingResponses.set(sentMessage.message_id, {
-        resolve: (response: string) => {
-          this.clearReminderTimer();
-          resolve(response);
-        },
+      this.currentCollector = {
+        originalMessage,
+        resolve,
         reject,
-        sentMessage,
-        timeout,
-      });
+      };
 
-      // Start reminders if enabled
-      this.startReminders(sentMessage);
+      // Process any queued messages that might already be responses
+      for (const message of this.messageQueue) {
+        if (
+          message.reply_to_message?.message_id === originalMessage.message_id &&
+          message.date > originalMessage.date
+        ) {
+          this.currentCollector = undefined;
+          resolve(message.text || '');
+          return;
+        }
+      }
     });
   }
 
-  protected async sendReminder(originalMessage: Message): Promise<void> {
-    if (!this.channel) {
-      return;
+  protected async sendReminder(
+    questionId: string,
+    originalMessage: Message,
+    previousReminderMessage?: Message
+  ): Promise<Message | undefined> {
+    logger.debug(
+      `Telegram sendReminder called for question ${questionId}, message_id: ${originalMessage.message_id}`
+    );
+
+    logger.debug(
+      `sendReminder: numericChatId=${this.numericChatId}, chatId=${this.chatId}, numericUserId=${this.numericUserId}`
+    );
+
+    const targetChatId = this.numericUserId || this.numericChatId;
+    if (!targetChatId) {
+      logger.debug('No valid chat ID or user ID available for reminder');
+      return undefined;
     }
 
     try {
-      // Try to delete the previous reminder message
-      if (this.lastReminderMessage) {
+      // Delete previous reminder message if it exists
+      if (previousReminderMessage) {
         try {
           await this.bot.api.deleteMessage(
-            this.numericChatId,
-            this.lastReminderMessage.message_id
+            targetChatId,
+            previousReminderMessage.message_id
+          );
+          logger.debug(
+            `Deleted previous Telegram reminder message ${previousReminderMessage.message_id}`
           );
         } catch (error) {
-          console.error('Failed to delete previous reminder message:', error);
+          logger.debug(
+            `Could not delete previous Telegram reminder message: ${error}`
+          );
         }
       }
 
-      // Send new reminder message that replies to the original question
-      this.lastReminderMessage = await this.bot.api.sendMessage(
-        this.numericChatId,
+      // Send new reminder message
+      logger.debug(`Sending Telegram reminder to chat ${targetChatId}`);
+      const reminderMessage = await this.bot.api.sendMessage(
+        targetChatId,
         `⏰ Reminder: Please respond to my question`,
         {
           reply_parameters: { message_id: originalMessage.message_id },
         }
       );
-
-      // Schedule next reminder
-      this.reminderTimer = setTimeout(() => {
-        this.sendReminder(originalMessage);
-      }, this.remindInterval);
-    } catch {
-      // If sending reminder fails, don't schedule next one
-      this.clearReminderTimer();
+      logger.debug(
+        `Telegram reminder sent successfully, reminder message_id: ${reminderMessage.message_id}`
+      );
+      return reminderMessage;
+    } catch (error) {
+      logger.error(`Failed to send Telegram reminder: ${error}`);
+      return undefined;
     }
   }
 }

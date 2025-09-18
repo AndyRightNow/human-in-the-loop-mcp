@@ -48,11 +48,13 @@ The codebase follows a modular transport-based architecture:
 The project uses strict TypeScript with comprehensive type safety:
 
 ### Zod Schema Validation
+
 - `QuestionsSchema` - Validates questions input (minimum 2 characters)
 - `AnswersSchema` - Validates human response answers (minimum 2 characters)
 - Runtime validation ensures type safety at boundaries
 
 ### Generic Transport Typing
+
 ```typescript
 // All command classes are strongly typed to their transport
 export abstract class BaseTransportCommand<TransportType extends BaseTransport>
@@ -62,6 +64,7 @@ protected abstract handleQuestions(questions: string): Promise<string>
 ```
 
 ### Type Organization
+
 - All types exported from `src/types/index.ts` for consistent imports
 - Zod schemas with `z.infer<>` generate TypeScript types automatically
 - Abstract base classes enforce implementation contracts

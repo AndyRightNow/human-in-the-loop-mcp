@@ -75,7 +75,15 @@ Pasting the following configuration into your Cursor `~/.cursor/mcp.json` file i
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -104,7 +112,15 @@ Add this to your Windsurf MCP config file. See [Windsurf MCP docs](https://docs.
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -156,7 +172,15 @@ Or you can directly edit MCP servers configuration:
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -175,7 +199,15 @@ Add this to your Zed `settings.json`. See [Zed Context Server docs](https://zed.
     "human-in-the-loop": {
       "command": {
         "path": "bunx",
-        "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+        "args": [
+          "-y",
+          "human-in-the-loop-mcp",
+          "discord",
+          "--token",
+          "YOUR_DISCORD_BOT_TOKEN",
+          "--user-id",
+          "YOUR_DISCORD_USER_ID"
+        ]
       },
       "settings": {}
     }
@@ -242,7 +274,15 @@ Add this to your Roo Code MCP configuration file. See [Roo Code MCP docs](https:
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -263,7 +303,15 @@ See [Gemini CLI Configuration](https://google-gemini.github.io/gemini-cli/docs/t
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -283,7 +331,15 @@ Open Claude Desktop developer settings and edit your `claude_desktop_config.json
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -301,7 +357,16 @@ Add this to your Opencode configuration file. See [Opencode MCP docs](https://op
   "mcp": {
     "human-in-the-loop": {
       "type": "local",
-      "command": ["bunx", "-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"],
+      "command": [
+        "bunx",
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ],
       "enabled": true
     }
   }
@@ -340,7 +405,15 @@ See [JetBrains AI Assistant Documentation](https://www.jetbrains.com/help/ai-ass
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -366,7 +439,15 @@ See [Kiro Model Context Protocol Documentation](https://kiro.dev/docs/mcp/config
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"],
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ],
       "env": {},
       "disabled": false,
       "autoApprove": []
@@ -390,7 +471,15 @@ For more details, visit the [Trae documentation](https://docs.trae.ai/ide/model-
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -410,7 +499,14 @@ Use these alternatives to run the local Human-In-The-Loop MCP server with other 
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -458,7 +554,17 @@ The configuration on Windows is slightly different compared to Linux or macOS (_
   "mcpServers": {
     "human-in-the-loop": {
       "command": "cmd",
-      "args": ["/c", "bunx", "-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"],
+      "args": [
+        "/c",
+        "bunx",
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ],
       "disabled": false,
       "autoApprove": []
     }
@@ -478,7 +584,15 @@ Add this to your Amazon Q Developer CLI configuration file. See [Amazon Q Develo
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -499,7 +613,15 @@ See [Warp Model Context Protocol Documentation](https://docs.warp.dev/knowledge-
 {
   "human-in-the-loop": {
     "command": "bunx",
-    "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"],
+    "args": [
+      "-y",
+      "human-in-the-loop-mcp",
+      "discord",
+      "--token",
+      "YOUR_DISCORD_BOT_TOKEN",
+      "--user-id",
+      "YOUR_DISCORD_USER_ID"
+    ],
     "env": {},
     "working_directory": null,
     "start_on_launch": true
@@ -525,7 +647,15 @@ Add the following configuration to the `mcp` section of your Copilot Coding Agen
     "human-in-the-loop": {
       "type": "stdio",
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"],
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ],
       "tools": ["AskQuestion"]
     }
   }
@@ -551,7 +681,15 @@ See [LM Studio MCP Support](https://lmstudio.ai/blog/lmstudio-v0.3.17) for more 
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -576,7 +714,15 @@ Add this to your Visual Studio MCP config file (see the [Visual Studio docs](htt
       "human-in-the-loop": {
         "type": "stdio",
         "command": "bunx",
-        "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+        "args": [
+          "-y",
+          "human-in-the-loop-mcp",
+          "discord",
+          "--token",
+          "YOUR_DISCORD_BOT_TOKEN",
+          "--user-id",
+          "YOUR_DISCORD_USER_ID"
+        ]
       }
     }
   }
@@ -599,7 +745,15 @@ Add this to your Crush configuration file. See [Crush MCP docs](https://github.c
     "human-in-the-loop": {
       "type": "stdio",
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -617,7 +771,15 @@ Open the "Settings" page of the app, navigate to "Plugins," and enter the follow
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -643,7 +805,15 @@ Example config -
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -664,7 +834,15 @@ To configure Human-In-The-Loop MCP in Zencoder, follow these steps:
 ```json
 {
   "command": "bunx",
-  "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+  "args": [
+    "-y",
+    "human-in-the-loop-mcp",
+    "discord",
+    "--token",
+    "YOUR_DISCORD_BOT_TOKEN",
+    "--user-id",
+    "YOUR_DISCORD_USER_ID"
+  ]
 }
 ```
 
@@ -687,7 +865,15 @@ See [Qodo Gen docs](https://docs.qodo.ai/qodo-documentation/qodo-gen/qodo-gen-ch
   "mcpServers": {
     "human-in-the-loop": {
       "command": "bunx",
-      "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"]
+      "args": [
+        "-y",
+        "human-in-the-loop-mcp",
+        "discord",
+        "--token",
+        "YOUR_DISCORD_BOT_TOKEN",
+        "--user-id",
+        "YOUR_DISCORD_USER_ID"
+      ]
     }
   }
 }
@@ -709,7 +895,15 @@ See [Local and Remote MCPs for Perplexity](https://www.perplexity.ai/help-center
 
 ```json
 {
-  "args": ["-y", "human-in-the-loop-mcp", "discord", "--token", "YOUR_DISCORD_BOT_TOKEN", "--user-id", "YOUR_DISCORD_USER_ID"],
+  "args": [
+    "-y",
+    "human-in-the-loop-mcp",
+    "discord",
+    "--token",
+    "YOUR_DISCORD_BOT_TOKEN",
+    "--user-id",
+    "YOUR_DISCORD_USER_ID"
+  ],
   "command": "bunx",
   "env": {}
 }
